@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSL - Método Revenda Smartphones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .vsl-container {
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .video-frame {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .slide h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #FFD700;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .slide p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: 700;
+        }
+
+        .money {
+            color: #2ecc71;
+            font-weight: 900;
+            font-size: 1.3em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background: #E63946;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-play {
+            background: #E63946;
+            color: white;
+        }
+
+        .btn-play:hover {
+            background: #d32f3d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-skip {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-skip:hover {
+            background: white;
+            color: #000;
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            color: #FFD700;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #E63946 0%, #d32f3d 100%);
+            border-radius: 15px;
+            max-width: 700px;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: #FFD700;
+            color: #000;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Slides específicos */
+        .slide-1 {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, #E63946 0%, #d32f3d 100%);
+        }
+
+        .slide-4 {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        }
+
+        .slide-5 {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            .slide h1 {
+                font-size: 2rem;
+            }
+            
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="vsl-container">
+        <div class="video-frame">
+            <!-- SLIDE 1: HOOK -->
+            <div class="slide slide-1 active" data-duration="10">
+                <div class="emoji">💰</div>
+                <h1>R$ 2.347 em 7 dias</h1>
+                <p>Vendendo smartphones usados...</p>
+                <h2>SEM SER TÉCNICO!</h2>
+                <p class="subtitle">Continue assistindo para descobrir como...</p>
+            </div>
+
+            <!-- SLIDE 2: IDENTIFICAÇÃO -->
+            <div class="slide slide-2" data-duration="12">
+                <div class="emoji">😰</div>
+                <h2>Você também está cansado?</h2>
+                <p>Trabalhar 8h+ por dia...</p>
+                <p>Ganhar pouco no final do mês...</p>
+                <p>Não ter tempo para família...</p>
+                <p class="highlight">E se eu te dissesse que existe uma saída?</p>
+            </div>
+
+            <!-- SLIDE 3: PROBLEMA -->
+            <div class="slide slide-3" data-duration="10">
+                <div class="emoji">📱</div>
+                <h2>Todo mundo precisa de celular</h2>
+                <p>Pessoas SEMPRE trocam de smartphone</p>
+                <p>Pessoas SEMPRE vendem os aparelhos usados</p>
+                <p class="highlight">E aí que VOCÊ entra!</p>
+            </div>
+
+            <!-- SLIDE 4: MÉTODO -->
+            <div class="slide slide-4" data-duration="15">
+                <div class="emoji">✅</div>
+                <h2>O Método Simples:</h2>
+                <p><strong>1.</strong> Compra smartphones BARATOS</p>
+                <p><strong>2.</strong> Revende pelo preço REAL</p>
+                <p><strong>3.</strong> Lucra 30% a 100% por aparelho</p>
+                <p class="money">Exemplo real: Comprei por R$ 1.200 → Vendi por R$ 1.800</p>
+                <p class="highlight">Lucro: R$ 600 em 3 horas de trabalho!</p>
+            </div>
+
+            <!-- SLIDE 5: DESTRUINDO OBJEÇÕES -->
+            <div class="slide slide-2" data-duration="12">
+                <div class="emoji">🤔</div>
+                <h2>"Mas eu não entendo nada de celular!"</h2>
+                <p>PERFEITO! Eu também não!</p>
+                <p>O segredo NÃO é mexer no aparelho...</p>
+                <p class="highlight">É saber QUAIS comprar e POR QUANTO!</p>
+                <p class="subtitle">Você não precisa ser técnico, precisa ser ESTRATÉGICO</p>
+            </div>
+
+            <!-- SLIDE 6: PROVA SOCIAL -->
+            <div class="slide slide-5" data-duration="10">
+                <div class="emoji">🏆</div>
+                <h2>Resultados Reais</h2>
+                <p>João, 28 anos: <span class="money">R$ 2.100</span> no 1º mês</p>
+                <p>Maria, mãe de 2: <span class="money">R$ 4.500</span> em 45 dias</p>
+                <p>Rafael, estudante: <span class="money">R$ 8-12mil</span> por mês</p>
+                <p class="highlight">A diferença? Eles COMEÇARAM!</p>
+            </div>
+
+            <!-- SLIDE 7: APRESENTAÇÃO DO CURSO -->
+            <div class="slide slide-1" data-duration="15">
+                <h2>MÉTODO REVENDA SMARTPHONES</h2>
+                <p>✅ 6 Módulos Completos</p>
+                <p>✅ Onde comprar barato</p>
+                <p>✅ Quais modelos escolher</p>
+                <p>✅ Como vender rápido</p>
+                <p>✅ Segurança total</p>
+                <p class="highlight">Tudo do ZERO ao AVANÇADO!</p>
+            </div>
+
+            <!-- SLIDE 8: BÔNUS -->
+            <div class="slide slide-4" data-duration="12">
+                <div class="emoji">🎁</div>
+                <h2>Bônus Exclusivos!</h2>
+                <p>📊 Planilha de Precificação (R$ 197)</p>
+                <p>📱 Lista de Fornecedores VIP (R$ 297)</p>
+                <p>💬 Scripts de Vendas (R$ 147)</p>
+                <p>🎓 Grupo VIP Telegram (R$ 497)</p>
+                <p class="money">TOTAL: R$ 1.138 em BÔNUS!</p>
+            </div>
+
+            <!-- SLIDE 9: OFERTA -->
+            <div class="slide slide-3" data-duration="15">
+                <div class="emoji">💸</div>
+                <h2>Quanto Custa?</h2>
+                <p style="text-decoration: line-through; opacity: 0.6;">De R$ 997</p>
+                <h1 class="money" style="font-size: 5rem;">R$ 197</h1>
+                <p>ou 12x de R$ 19,41</p>
+                <p class="subtitle">Menos que um almoço por dia!</p>
+            </div>
+
+            <!-- SLIDE 10: GARANTIA -->
+            <div class="slide slide-4" data-duration="10">
+                <div class="emoji">✅</div>
+                <h2>Garantia de 7 Dias</h2>
+                <p>100% do seu dinheiro de volta</p>
+                <p>Sem perguntas, sem burocracia</p>
+                <p class="highlight">O risco é TODO MEU!</p>
+                <p class="subtitle">Você não tem nada a perder</p>
+            </div>
+
+            <!-- SLIDE 11: ESCASSEZ -->
+            <div class="slide slide-3" data-duration="8">
+                <div class="emoji">⏰</div>
+                <h2>ATENÇÃO!</h2>
+                <p>Apenas <span class="money">47 VAGAS</span> disponíveis</p>
+                <p>Próxima turma só em 30 dias</p>
+                <p class="highlight">Cada dia que espera = dinheiro perdido!</p>
+            </div>
+
+            <!-- SLIDE 12: CTA FINAL -->
+            <div class="slide slide-5" data-duration="20">
+                <div class="emoji">🚀</div>
+                <h1>Você Tem 2 Escolhas</h1>
+                <p><strong>ESCOLHA 1:</strong> Continuar na mesma situação</p>
+                <p><strong>ESCOLHA 2:</strong> Começar HOJE a mudar sua vida</p>
+                <p class="money" style="margin-top: 30px; font-size: 2rem;">A escolha é SUA!</p>
+                <p class="subtitle">Clique no botão abaixo AGORA</p>
+            </div>
+
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-play" id="playBtn">▶ INICIAR VSL</button>
+            <button class="btn btn-skip" id="skipBtn">⏭ Próximo Slide</button>
+            <span class="timer" id="timer">0:00</span>
+        </div>
+
+        <div class="cta-section" id="ctaSection" style="display: none;">
+            <h3>🎯 QUERO COMEÇAR AGORA!</h3>
+            <p style="margin-bottom: 20px;">Garanta sua vaga antes que acabem</p>
+            <button class="cta-button" onclick="alert('Aqui você conectaria com sua plataforma de pagamento (Hotmart/Eduzz/Kiwify)')">
+                GARANTIR MINHA VAGA POR R$ 197
+            </button>
+            <p style="margin-top: 15px; font-size: 0.9rem;">✅ Acesso imediato | ✅ Garantia 7 dias | ✅ Todos os bônus inclusos</p>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const playBtn = document.getElementById('playBtn');
+        const skipBtn = document.getElementById('skipBtn');
+        const timer = document.getElementById('timer');
+        const progressBar = document.getElementById('progressBar');
+        const ctaSection = document.getElementById('ctaSection');
+
+        let currentSlide = 0;
+        let isPlaying = false;
+        let slideTimer;
+        let timeElapsed = 0;
+        let totalTime = 0;
+
+        // Calcular tempo total
+        slides.forEach(slide => {
+            totalTime += parseInt(slide.dataset.duration);
+        });
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                stopVSL();
+                ctaSection.style.display = 'block';
+                ctaSection.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+            showSlide(currentSlide);
+            startSlideTimer();
+        }
+
+        function startSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            
+            const duration = parseInt(slides[currentSlide].dataset.duration) * 1000;
+            const startTime = Date.now();
+
+            slideTimer = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                
+                if (elapsed >= duration) {
+                    nextSlide();
+                }
+            }, 100);
+        }
+
+        function startVSL() {
+            isPlaying = true;
+            playBtn.textContent = '⏸ PAUSAR';
+            currentSlide = 0;
+            showSlide(currentSlide);
+            startSlideTimer();
+            startGlobalTimer();
+        }
+
+        function stopVSL() {
+            isPlaying = false;
+            playBtn.textContent = '▶ REINICIAR';
+            if (slideTimer) clearInterval(slideTimer);
+            if (globalTimer) clearInterval(globalTimer);
+        }
+
+        let globalTimer;
+        function startGlobalTimer() {
+            if (globalTimer) clearInterval(globalTimer);
+            
+            timeElapsed = 0;
+            globalTimer = setInterval(() => {
+                timeElapsed++;
+                const minutes = Math.floor(timeElapsed / 60);
+                const seconds = timeElapsed % 60;
+                timer.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                const progress = (timeElapsed / totalTime) * 100;
+                progressBar.style.width = Math.min(progress, 100) + '%';
+            }, 1000);
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (!isPlaying) {
+                startVSL();
+            } else {
+                stopVSL();
+            }
+        });
+
+        skipBtn.addEventListener('click', () => {
+            nextSlide();
+        });
+
+        // Auto-start após 2 segundos
+        setTimeout(() => {
+            startVSL();
+        }, 2000);
+    </script>
+</body>
+</html>
