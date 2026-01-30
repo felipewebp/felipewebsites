@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Faturar R$5.000+ Por Mês Revendendo Smartphones Usados (SEM Ser Técnico!)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #E63946;
+            --dark-bg: #1d1d1d;
+            --light-bg: #f5f5f5;
+            --gold: #FFD700;
+            --green-money: #2ecc71;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pre-headline {
+            background: var(--primary-red);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .highlight-yellow {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: var(--gold);
+            text-decoration-thickness: 3px;
+        }
+
+        .subheadline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background: var(--primary-red);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.6);
+            background: #d32f3d;
+        }
+
+        .urgency-text {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* VSL VIDEO SECTION */
+        .vsl-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .video-placeholder {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #000;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.5);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 30px solid white;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            margin-left: 8px;
+        }
+
+        /* PROOF SECTION */
+        .proof-section {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .proof-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .proof-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .proof-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .proof-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-red);
+        }
+
+        /* PROBLEM SECTION */
+        .problem-section {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .problem-list {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .problem-item {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-red);
+            border-radius: 5px;
+        }
+
+        .problem-item h3 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* SOLUTION SECTION */
+        .solution-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* WHAT YOU GET SECTION */
+        .modules-section {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+
+        .module {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .module-number {
+            background: var(--primary-red);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-right: 15px;
+        }
+
+        .module-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .module-content {
+            margin-top: 15px;
+            padding-left: 65px;
+            color: #555;
+        }
+
+        /* BONUS SECTION */
+        .bonus-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .bonus-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .bonus-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        /* PRICE SECTION */
+        .price-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .price-box {
+            max-width: 600px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .price-detail {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .guarantee-badge {
+            background: var(--green-money);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .faq-question {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .countdown {
+            background: var(--primary-red);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 30px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #999;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .new-price {
+                font-size: 3rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .image-showcase img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-showcase img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="pre-headline">🔥 ATENÇÃO: VAGAS LIMITADAS</div>
+            <h1>
+                Como Faturar <span class="highlight-yellow">R$5.000+</span> Por Mês<br>
+                Comprando e Vendendo <span class="highlight-yellow">Smartphones Usados</span><br>
+                <strong>SEM Ser Técnico!</strong>
+            </h1>
+            <p class="subheadline">
+                Descubra o método passo a passo que pessoas comuns estão usando para criar uma renda extra sólida,
+                mesmo sem conhecimento técnico, sem precisar consertar aparelhos e sem investimento inicial alto!
+            </p>
+            <a href="#oferta" class="cta-button">QUERO COMEÇAR AGORA!</a>
+            <p class="urgency-text">⏰ Apenas 47 vagas disponíveis nesta turma!</p>
+        </div>
+    </section>
+
+    <!-- VSL SECTION -->
+    <section class="vsl-section">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--text-dark);">
+                👇 ASSISTA ESTE VÍDEO ATÉ O FINAL (É IMPORTANTE!)
+            </h2>
+            <div class="video-placeholder">
+                <div class="play-button"></div>
+                <p style="color: white; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 0.9rem; opacity: 0.7;">
+                    [ADICIONE SEU VÍDEO DE VENDAS AQUI]
+                </p>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.95rem; color: #666;">
+                🔊 Ligue o som e preste muita atenção nos próximos minutos...
+            </p>
+        </div>
+    </section>
+
+    <!-- PROOF SECTION -->
+    <section class="proof-section">
+        <div class="container">
+            <h2 class="section-title">📱 Veja Os Resultados Reais de Quem Está Faturando</h2>
+            
+            <div class="image-showcase">
+                <!-- Usando as URLs das suas imagens do Google Photos -->
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNqpOaVDUpUnKJQ7FS2y6Lbh_JxY37yvamT_qx7J6Udj2WLO3CGkO8PHrg8yp_wGvb7ervUae6XF2P9y6STdOY6JzyEgbcM1U-dSyJb75pje2cboWk=w800" alt="Lucro com iPhone">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMG_9J-k3WfukoAbKko1eU2juguv1vy1EttvbDt_Yun5pYEtihSH13QL2YH_K6M9siL_MUKczHd3XLi1cxvqFPhVfy9rjJKBS80U3KIhzrplZAMYVw=w800" alt="Smartphones para revenda">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczPDfIw0a84XKws-JEk0HtQUb5kKI7ZUHsZMnTIMK3_mNwA1GzsjnIMimuPBZaXj5F3xH5Rx6yjJFSne03WlDyeJXz6CXWjjdZgp4G2RbsCc7i9qJjw=w800" alt="Lucro na revenda">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOMD_bsF1Yk0BO5BoFs6n2NX4IEQoPs4i0uOVJCb1MgfW_JyMrGGfbLofizZs_qMO97TiDiDNNpGZ49getElK5dqYL8HfXSqsxl1njtxj-4-60u2g4=w800" alt="Celulares usados lucrativos">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOaUmFtxM4a5z5NTV635TMAa9eesYsbNXkRxWggWZWJ55r_SzKB5bOvYRoNoiUAeqBu96ICY4aU0-oy10FKOjoGqjIrYsl3A6iCGMNpxq1xfTeIPHU=w800" alt="Exemplo de lucro">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNdxa_vcXrrI1CFv7NGWXw6-b-0x13jK59ig1wHZUcm14clvTex8lwyqt1sJVQaok9Z_vNDqTlv_1rXfNVECJ-1_SEy_o2GwFKmverBpUNT1fg8b80=w800" alt="Faturamento mensal">
+            </div>
+
+            <div class="proof-grid" style="margin-top: 50px;">
+                <div class="proof-card">
+                    <div class="proof-icon">💰</div>
+                    <h3 class="proof-title">R$5.000+ / Mês</h3>
+                    <p>Potencial de faturamento mensal trabalhando 2-4 horas por dia</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">📱</div>
+                    <h3 class="proof-title">Zero Técnico</h3>
+                    <p>Sem precisar saber consertar ou mexer em componentes</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">⚡</div>
+                    <h3 class="proof-title">Início Rápido</h3>
+                    <p>Faça sua primeira venda em até 7 dias após começar</p>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">🎯</div>
+                    <h3 class="proof-title">Método Validado</h3>
+                    <p>Estratégia testada e aprovada por dezenas de alunos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">😰 Você Está Cansado Disso?</h2>
+            
+            <div class="problem-list">
+                <div class="problem-item">
+                    <h3>❌ Trabalhar 8h+ por dia por um salário que mal paga as contas?</h3>
+                    <p>Enquanto isso, você vê pessoas ganhando em 1 semana o que você ganha em 1 mês...</p>
+                </div>
+                <div class="problem-item">
+                    <h3>❌ Depender 100% do seu emprego sem ter um "plano B"?</h3>
+                    <p>Viver com medo de ser demitido e não ter como pagar as suas contas no final do mês...</p>
+                </div>
+                <div class="problem-item">
+                    <h3>❌ Não ter tempo para a família porque precisa fazer "bicos"?</h3>
+                    <p>Perdendo momentos importantes enquanto tenta conseguir uma grana extra...</p>
+                </div>
+                <div class="problem-item">
+                    <h3>❌ Querer empreender mas não saber POR ONDE COMEÇAR?</h3>
+                    <p>Sentindo que falta um método claro, passo a passo, que qualquer pessoa possa seguir...</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="font-size: 2rem; color: var(--gold); margin-bottom: 20px;">
+                    E Se Eu Te Dissesse Que Existe Uma Saída?
+                </h3>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Uma oportunidade real, acessível e validada de criar uma renda extra sólida
+                    vendendo algo que TODO MUNDO precisa: smartphones!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title">✅ A Solução Que Vai Mudar Sua Realidade Financeira</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">Sem Barreiras de Entrada</h3>
+                    <p>Comece com investimento mínimo. Não precisa de loja física, estoque gigante ou grande capital inicial.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3 class="benefit-title">Método Passo a Passo</h3>
+                    <p>Sistema completo mostrando EXATAMENTE onde comprar, quais modelos escolher e como vender rápido.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h3 class="benefit-title">Estratégia Inteligente</h3>
+                    <p>Aprenda a identificar oportunidades de lucro que 99% das pessoas ignoram no mercado de usados.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3 class="benefit-title">Trabalhe no Seu Tempo</h3>
+                    <p>2-4 horas por dia são suficientes. Concilie com seu emprego atual ou dedique-se full time!</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔧</div>
+                    <h3 class="benefit-title">Zero Conhecimento Técnico</h3>
+                    <p>Não precisa saber consertar nada! O segredo está na SELEÇÃO e NEGOCIAÇÃO, não em técnica.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">Escalável e Lucrativo</h3>
+                    <p>Comece pequeno e cresça conforme ganha experiência. Margem de lucro de 30% a 100% por aparelho!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="modules-section">
+        <div class="container">
+            <h2 class="section-title">📚 O Que Você Vai Aprender no Método Completo</h2>
+            
+            <div class="module">
+                <span class="module-number">1</span>
+                <h3 class="module-title">Fundamentos do Negócio de Revenda</h3>
+                <div class="module-content">
+                    <p>✓ Mindset do revendedor de sucesso<br>
+                    ✓ Como funciona o mercado de smartphones usados<br>
+                    ✓ Principais erros que matam 90% dos iniciantes<br>
+                    ✓ Os 3 pilares para ganhar dinheiro com revenda</p>
+                </div>
+            </div>
+
+            <div class="module">
+                <span class="module-number">2</span>
+                <h3 class="module-title">Onde e Como Comprar Com Inteligência</h3>
+                <div class="module-content">
+                    <p>✓ As 7 melhores fontes para comprar smartphones baratos<br>
+                    ✓ Como negociar e conseguir descontos de até 50%<br>
+                    ✓ Check-list completo: o que avaliar ANTES de comprar<br>
+                    ✓ Truques para identificar aparelhos com maior margem de lucro</p>
+                </div>
+            </div>
+
+            <div class="module">
+                <span class="module-number">3</span>
+                <h3 class="module-title">Quais Modelos Comprar e Quais Evitar</h3>
+                <div class="module-content">
+                    <p>✓ Top 20 modelos mais lucrativos do mercado (atualizado 2025)<br>
+                    ✓ Aparelhos que vendem rápido vs. aparelhos que empacam<br>
+                    ✓ Como avaliar o valor de mercado de qualquer smartphone<br>
+                    ✓ Planilha de precificação automática (BÔNUS EXCLUSIVO)</p>
+                </div>
+            </div>
+
+            <div class="module">
+                <span class="module-number">4</span>
+                <h3 class="module-title">Estratégias de Venda Que Funcionam</h3>
+                <div class="module-content">
+                    <p>✓ Onde anunciar para vender RÁPIDO (OLX, Mercado Livre, Facebook, WhatsApp)<br>
+                    ✓ Como criar anúncios irresistíveis que convertem<br>
+                    ✓ Scripts de atendimento para fechar vendas pelo WhatsApp<br>
+                    ✓ Técnicas de negociação para não perder margem de lucro</p>
+                </div>
+            </div>
+
+            <div class="module">
+                <span class="module-number">5</span>
+                <h3 class="module-title">Maximizando Seus Lucros</h3>
+                <div class="module-content">
+                    <p>✓ Como vender acessórios e aumentar ticket médio em 40%<br>
+                    ✓ Estratégia de fidelização: transforme clientes em compradores recorrentes<br>
+                    ✓ Técnicas avançadas para escalar de R$5k para R$10k+ por mês<br>
+                    ✓ Sistema de gestão financeira para controlar lucros e despesas</p>
+                </div>
+            </div>
+
+            <div class="module">
+                <span class="module-number">6</span>
+                <h3 class="module-title">Evitando Golpes e Problemas Jurídicos</h3>
+                <div class="module-content">
+                    <p>✓ Como identificar aparelhos roubados/bloqueados<br>
+                    ✓ Checklist de segurança para não cair em golpes<br>
+                    ✓ Orientações legais para revender com tranquilidade<br>
+                    ✓ Como se proteger de clientes problemáticos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS SECTION -->
+    <section class="bonus-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white; font-size: 3rem;">🎁 BÔNUS EXCLUSIVOS!</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 40px;">
+                Além do curso completo, você também recebe:
+            </p>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">📊 Planilha de Precificação</h3>
+                    <p class="bonus-value">R$ 197</p>
+                    <p>Calcule automaticamente seu lucro em cada venda!</p>
+                </div>
+                <div class="bonus-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">📱 Lista Fornecedores VIP</h3>
+                    <p class="bonus-value">R$ 297</p>
+                    <p>Acesso aos melhores fornecedores testados e aprovados!</p>
+                </div>
+                <div class="bonus-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">💬 Scripts de Vendas</h3>
+                    <p class="bonus-value">R$ 147</p>
+                    <p>Mensagens prontas que convertem pelo WhatsApp!</p>
+                </div>
+                <div class="bonus-card">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">🎓 Grupo VIP Telegram</h3>
+                    <p class="bonus-value">R$ 497</p>
+                    <p>Comunidade exclusiva com suporte direto e networking!</p>
+                </div>
+            </div>
+
+            <p style="font-size: 1.5rem; margin-top: 40px; font-weight: 700;">
+                TOTAL EM BÔNUS: <span style="color: var(--gold); font-size: 2rem;">R$ 1.138,00</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- PRICE SECTION -->
+    <section class="price-section" id="oferta">
+        <div class="container">
+            <h2 class="section-title">💰 Quanto Custa Para Começar a Transformar Sua Vida?</h2>
+            
+            <div class="price-box">
+                <p>De <span class="old-price">R$ 997,00</span></p>
+                <p style="font-size: 1.5rem; margin-bottom: 10px;">Por APENAS:</p>
+                <p class="new-price">R$ 197</p>
+                <p class="price-detail">ou 12x de R$ 19,41</p>
+                
+                <a href="#checkout" class="cta-button" style="background: var(--gold); color: #000;">
+                    GARANTIR MINHA VAGA AGORA!
+                </a>
+
+                <div class="guarantee-badge">
+                    ✅ GARANTIA DE 7 DIAS - 100% DO SEU DINHEIRO DE VOLTA
+                </div>
+
+                <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9;">
+                    🔒 Pagamento 100% seguro e protegido
+                </p>
+            </div>
+
+            <div style="margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.8rem; color: var(--primary-red); margin-bottom: 20px;">
+                    ⚡ GARANTIA TOTAL - RISCO ZERO!
+                </h3>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    Se dentro de 7 dias você assistir as aulas, aplicar o método e não ficar 100% satisfeito,
+                    basta enviar um email e devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.
+                    O risco é TODO MEU!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">❓ Perguntas Frequentes</h2>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Preciso ter conhecimento técnico para começar?</h3>
+                <p class="faq-answer">
+                    NÃO! Esse é o grande diferencial do método. Você não precisa saber consertar, mexer em componentes
+                    ou ter qualquer conhecimento técnico. Tudo é baseado em SELEÇÃO inteligente e NEGOCIAÇÃO.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Quanto preciso investir para começar?</h3>
+                <p class="faq-answer">
+                    Você pode começar com R$ 500 a R$ 1.000. Muitos alunos começaram com menos e foram escalando
+                    conforme os lucros permitiram. O importante é começar inteligente, não grande.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Quanto tempo leva para ter o primeiro resultado?</h3>
+                <p class="faq-answer">
+                    A maioria dos alunos faz a primeira venda em 7 a 15 dias. Mas isso depende do seu comprometimento
+                    e disponibilidade. Quanto mais você se dedicar, mais rápido verá resultados.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Consigo fazer isso junto com meu emprego?</h3>
+                <p class="faq-answer">
+                    SIM! O método foi criado justamente pensando em quem trabalha. Com 2-4 horas por dia você consegue
+                    resultados excelentes. Muitos alunos começaram assim e depois decidiram se dedicar 100%.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">E se eu não tiver experiência com vendas?</h3>
+                <p class="faq-answer">
+                    Sem problemas! O curso ensina tudo: desde como criar anúncios, atender clientes, negociar preços
+                    até fechar vendas. Você terá scripts prontos e técnicas validadas para usar.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Como funciona a garantia?</h3>
+                <p class="faq-answer">
+                    Você tem 7 dias para testar todo o conteúdo. Se não gostar, por QUALQUER motivo, basta pedir
+                    o reembolso e devolvemos 100% do seu dinheiro. Simples assim.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">
+                🚀 Chegou a Hora de Você Decidir
+            </h2>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px;">
+                Você pode continuar na mesma situação financeira que está hoje...<br>
+                <strong>OU</strong> pode dar o primeiro passo para criar uma renda extra real e sólida.
+            </p>
+
+            <div class="countdown">
+                ⏰ RESTAM APENAS <span id="vagas">34</span> VAGAS NESTA TURMA!
+            </div>
+
+            <a href="#oferta" class="cta-button" style="font-size: 1.5rem; padding: 25px 60px;">
+                SIM! QUERO COMEÇAR AGORA! 🚀
+            </a>
+
+            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+                ✅ Acesso imediato após a confirmação do pagamento<br>
+                ✅ Suporte direto no grupo VIP<br>
+                ✅ Todos os bônus inclusos
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2025 - Método Revenda Smartphones | Todos os direitos reservados</p>
+            <p style="margin-top: 10px;">
+                <a href="#" style="color: #999; text-decoration: none;">Política de Privacidade</a> |
+                <a href="#" style="color: #999; text-decoration: none;">Termos de Uso</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulação de contador de vagas (você pode integrar com um backend real)
+        let vagas = 34;
+        const vagasElement = document.getElementById('vagas');
+        
+        setInterval(() => {
+            if (vagas > 10 && Math.random() > 0.7) {
+                vagas--;
+                vagasElement.textContent = vagas;
+            }
+        }, 45000); // Reduz vagas a cada 45 segundos (aleatório)
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animação de entrada dos elementos
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.proof-card, .benefit-card, .module, .bonus-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
